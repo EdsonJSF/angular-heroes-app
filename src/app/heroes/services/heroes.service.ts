@@ -21,4 +21,8 @@ export class HeroesService {
   getHeroeById(id: string): Observable<Heroe> {
     return this.http.get<Heroe>(`${this.baseURL}/heroes/${id}`);
   }
+
+  searchHeroe(termino: string): Observable<Heroe[]> {
+    return this.http.get<Heroe[]>(`${this.baseURL}/heroes/?q=${termino}&_limit=5`);
+  }
 }
