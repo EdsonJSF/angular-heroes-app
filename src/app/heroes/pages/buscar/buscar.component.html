@@ -5,7 +5,7 @@
   </div>
   <div>
     <h3>Buscador</h3>
-    <mat-form-field>
+    <mat-form-field fxFlexFill>
       <input
         type="text"
         placeholder=""
@@ -22,6 +22,9 @@
       >
         <mat-option *ngFor="let heroe of heroes" [value]="heroe">
           {{ heroe.superhero }}
+        </mat-option>
+        <mat-option *ngIf="!heroes?.length && termino.length > 0" value="">
+          No se encontro: "{{ termino }}"
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
