@@ -12,6 +12,7 @@ import { HeroeComponent } from './pages/heroe/heroe.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.component';
+import { HeroeTarjetaUnicaComponent } from './components/heroe-tarjeta-unica/heroe-tarjeta-unica.component';
 
 import { ImagenPipe } from './pipes/imagen.pipe';
 
@@ -23,6 +24,7 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     HomeComponent,
     ListadoComponent,
     HeroeTarjetaComponent,
+    HeroeTarjetaUnicaComponent,
     ImagenPipe,
   ],
   imports: [

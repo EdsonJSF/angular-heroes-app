@@ -30,7 +30,8 @@
     </mat-form-field>
   </div>
 
-  <div>
-    <pre>{{ heroeSeleccionado | json }}</pre>
-  </div>
+  <app-heroe-tarjeta-unica
+    *ngIf="heroeSeleccionado"
+    [heroe]="heroeSeleccionado"
+  ></app-heroe-tarjeta-unica>
 </div>
