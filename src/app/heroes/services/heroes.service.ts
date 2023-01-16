@@ -23,6 +23,12 @@ export class HeroesService {
   }
 
   searchHeroe(termino: string): Observable<Heroe[]> {
-    return this.http.get<Heroe[]>(`${this.baseURL}/heroes/?q=${termino}&_limit=5`);
+    return this.http.get<Heroe[]>(
+      `${this.baseURL}/heroes/?q=${termino}&_limit=5`
+    );
+  }
+
+  createHeroe(heroe: Heroe): Observable<Heroe> {
+    return this.http.post<Heroe>(`${this.baseURL}/heroes`, heroe);
   }
 }

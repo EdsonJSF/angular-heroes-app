@@ -1,31 +1,41 @@
 <h1>Nuevo Héroe <small>asd</small></h1>
 
-<div fxLayout="row" fxLayoutGap="40px">
+<div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="40px">
   <div fxFlex="50" fxLayout="column">
-    <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap.gt-sm="20px">
+    <div
+      fxLayout="column"
+      fxLayout.gt-sm="row"
+      fxLayoutGap="0px"
+      fxLayoutGap.gt-sm="20px"
+    >
       <mat-form-field fxFlex="100">
         <mat-label>Super Héroe</mat-label>
-        <input matInput type="text" required />
+        <input matInput type="text" required [(ngModel)]="heroe.superhero" />
       </mat-form-field>
       <mat-form-field fxFlex="100">
         <mat-label>Alter Ego</mat-label>
-        <input matInput type="text" required />
+        <input matInput type="text" required [(ngModel)]="heroe.alter_ego" />
       </mat-form-field>
     </div>
 
     <mat-form-field fxFlex="100">
       <mat-label>Primera Aparición</mat-label>
-      <input matInput type="text" required />
+      <input
+        matInput
+        type="text"
+        required
+        [(ngModel)]="heroe.first_appearance"
+      />
     </mat-form-field>
 
     <mat-form-field fxFlex="100">
       <mat-label>Personajes</mat-label>
-      <input matInput type="text" required />
+      <input matInput type="text" required [(ngModel)]="heroe.characters" />
     </mat-form-field>
 
     <mat-form-field fxFlex="100">
-      <mat-label>Personajes</mat-label>
-      <mat-select>
+      <mat-label>Creador</mat-label>
+      <mat-select required [(ngModel)]="heroe.publisher">
         <mat-option *ngFor="let publisher of publishers" [value]="publisher.id">
           {{ publisher.desc }}
         </mat-option>
@@ -34,12 +44,12 @@
 
     <mat-form-field fxFlex="100">
       <mat-label>Foto Url</mat-label>
-      <input matInput type="url" required />
+      <input matInput type="url" required [(ngModel)]="heroe.alt_img" />
     </mat-form-field>
 
     <br />
 
-    <button mat-raised-button color="primary">
+    <button mat-raised-button color="primary" (click)="guardar()">
       <mat-icon>save</mat-icon>
       Guardar
     </button>
