@@ -55,4 +55,8 @@ export class AgregarComponent implements OnInit {
       });
     }
   }
+
+  eliminar() {
+    this.heroesService.delteteHeroe(this.heroe.id!).subscribe(resp => this.router.navigate(["heroes/listado"]));
+  }
 }

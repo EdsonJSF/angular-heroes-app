@@ -52,10 +52,22 @@
 
     <br />
 
-    <button mat-raised-button color="primary" (click)="guardar()">
-      <mat-icon>save</mat-icon>
-      Guardar
-    </button>
+    <div fxLayout>
+      <button mat-raised-button color="primary" (click)="guardar()">
+        <mat-icon>save</mat-icon>
+        Guardar
+      </button>
+      <div class="spacer"></div>
+      <button
+        mat-raised-button
+        color="warn"
+        *ngIf="heroe.id"
+        (click)="eliminar()"
+      >
+        <mat-icon>delete</mat-icon>
+        eliminar
+      </button>
+    </div>
   </div>
 
   <div fxFlex="50">
