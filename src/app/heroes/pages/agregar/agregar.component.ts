@@ -48,7 +48,7 @@ export class AgregarComponent implements OnInit {
   guardar() {
     if (!this.heroe.superhero.trim()) return;
     if (this.heroe.id) {
-      this.heroesService.updateHeroe(this.heroe).subscribe(console.log);
+      this.heroesService.updateHeroe(this.heroe).subscribe(heroe => this.heroe = heroe);
     } else {
       this.heroesService.createHeroe(this.heroe).subscribe((heroe) => {
         this, this.router.navigate(['/heroes/editar', heroe.id]);
