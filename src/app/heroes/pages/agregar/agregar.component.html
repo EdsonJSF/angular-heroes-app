@@ -21,7 +21,7 @@
       </mat-form-field>
     </div>
 
-    <mat-form-field fxFlex="100">
+    <mat-form-field>
       <mat-label>Primera Aparición</mat-label>
       <input
         matInput
@@ -31,12 +31,12 @@
       />
     </mat-form-field>
 
-    <mat-form-field fxFlex="100">
+    <mat-form-field>
       <mat-label>Personajes</mat-label>
       <input matInput type="text" required [(ngModel)]="heroe.characters" />
     </mat-form-field>
 
-    <mat-form-field fxFlex="100">
+    <mat-form-field>
       <mat-label>Creador</mat-label>
       <mat-select required [(ngModel)]="heroe.publisher">
         <mat-option *ngFor="let publisher of publishers" [value]="publisher.id">
@@ -45,7 +45,7 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field fxFlex="100">
+    <mat-form-field>
       <mat-label>Foto Url</mat-label>
       <input matInput type="url" required [(ngModel)]="heroe.alt_img" />
     </mat-form-field>
@@ -59,6 +59,6 @@
   </div>
 
   <div fxFlex="50">
-    <img [src]="heroe | imagen" alt="" />
+    <img class="w-100 rounded-1" [src]="heroe | imagen" alt="" />
   </div>
 </div>
