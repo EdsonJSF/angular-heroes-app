@@ -54,8 +54,8 @@
 
     <div fxLayout>
       <button mat-raised-button color="primary" (click)="guardar()">
-        <mat-icon>save</mat-icon>
-        Guardar
+        <mat-icon>{{ heroe.id ? "edit" : "save" }}</mat-icon>
+        {{ heroe.id ? "Actualizar" : "Crear" }}
       </button>
       <div class="spacer"></div>
       <button
@@ -65,7 +65,7 @@
         (click)="eliminar()"
       >
         <mat-icon>delete</mat-icon>
-        eliminar
+        Eliminar
       </button>
     </div>
   </div>

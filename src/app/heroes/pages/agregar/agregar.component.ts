@@ -60,11 +60,11 @@ export class AgregarComponent implements OnInit {
     if (this.heroe.id) {
       this.heroesService.updateHeroe(this.heroe).subscribe((heroe) => {
         this.heroe = heroe;
-        this.openSnackBar('Heroe Actualizado');
+        this.openSnackBar('Héroe Actualizado');
       });
     } else {
       this.heroesService.createHeroe(this.heroe).subscribe((heroe) => {
-        this.openSnackBar('Heroe Creado');
+        this.openSnackBar('Héroe Creado');
         this, this.router.navigate(['/heroes/editar', heroe.id]);
       });
     }
@@ -75,7 +75,7 @@ export class AgregarComponent implements OnInit {
     dialog.afterClosed().subscribe((resp) => {
       if (resp) {
         this.heroesService.delteteHeroe(this.heroe.id!).subscribe((resp) => {
-          this.openSnackBar('Heroe eliminado');
+          this.openSnackBar('Héroe eliminado');
           this.router.navigate(['heroes/listado']);
         });
       }
