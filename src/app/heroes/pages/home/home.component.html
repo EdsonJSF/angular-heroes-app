@@ -35,7 +35,7 @@
 
     <span class="spacer"></span>
 
-    <span>{{ auth.usuario }}</span>
+    <span *ngIf="auth?.id">{{ auth.usuario }}</span>
 
     <button mat-button (click)="logout()">Logout</button>
   </mat-toolbar>
