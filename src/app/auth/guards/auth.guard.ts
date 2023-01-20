@@ -8,6 +8,7 @@ import {
   UrlSegment,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
@@ -32,10 +33,13 @@ export class AuthGuard implements CanLoad, CanActivate {
     return this.checkLogin();
   }
 
-  checkLogin(): boolean {
-    if (this.authService.auth?.id) {
-      return true;
-    }
-    return false;
+  checkLogin(): Observable<boolean> {
+    return this.authService.checkLogin().pipe(
+      tap((isLogin) => {
+        if (!isLogin) {
+          this.router.navigate(['/auth/login']);
+        }
+      })
+    );
   }
 }

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs';
+
+import { Observable, of } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
 
@@ -19,9 +21,25 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
+  checkLogin(): Observable<boolean> {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      return of(false);
+    }
+
+    return this.http.get<Auth>(`${this.baseURL}/usuarios/${token}`).pipe(
+      map((usuario) => {
+        this._auth = usuario;
+        return true;
+      })
+    );
+  }
+
   login() {
-    return this.http
-      .get<Auth>(`${this.baseURL}/usuarios/1`)
-      .pipe(tap((usuario) => (this._auth = usuario)));
+    return this.http.get<Auth>(`${this.baseURL}/usuarios/1`).pipe(
+      tap((usuario) => (this._auth = usuario)),
+      tap((usuario) => localStorage.setItem('token', usuario.id))
+    );
   }
 }
